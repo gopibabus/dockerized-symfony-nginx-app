@@ -1,0 +1,43 @@
+version: "3"
+networks:
+  app-tier:
+    driver: bridge
+
+services:
+  app:
+    image: symfony-www
+    container_name: symfony-www
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    env_file:
+      - .docker.env
+    environment:
+      CONTAINER_ROLE: app
+      PHP_OPCACHE_VALIDATE_TIMESTAMPS: 1
+      DATABASE_URL: "mysql://symfony:secret@mysql:3306/symfony"
+    volumes:
+      - .:/var/www/html
+    networks:
+      - app-tier
+    ports:
+      - 8080:80
+
+  mysql:
+    container_name: symfony-mysql
+    image: mysql:5.7
+    networks:
+      - app-tier
+    ports:
+      - 13306:3306
+    volumes:
+      - mysql:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: symfony
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: symfony
+      MYSQL_PASSWORD: secret
+
+volumes:
+  mysql:
+    driver: "local"
