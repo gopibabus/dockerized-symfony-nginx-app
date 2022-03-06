@@ -1,4 +1,4 @@
-## Symfony 4 Starter - Docker for PHP Developers
+## Dockerized Symfony Nginx App
 
 A Symfony 4 starter project for Docker using Nginx and PHP-FPM. This project is an opinionated approach to organizing Docker in a PHP project and demonstrates separating configuration and code for containers.
 
