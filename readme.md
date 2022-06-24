@@ -149,7 +149,3 @@ The `supervisor/` folder contains three configuration files in `docker/superviso
 The `docker/supervisor/conf.d` configuration files include `app.conf`. Based on the `CONTAINER_ROLE` environment variable, you can add more conditionals to the `run-app.sh` script, and symlink the right conf file in place at runtime.
 
 When running as a web server, `supervisord` runs both Nginx and PHP-FPM, which communicate via a Unix socket.
-
-## License
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
